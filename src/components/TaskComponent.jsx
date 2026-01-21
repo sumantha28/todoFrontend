@@ -10,7 +10,7 @@ const TaskComponent = () => {
 
    const fetchTasks = async () => {
         try {
-        const response = await axios.get('http://localhost:3000/task');
+        const response = await axios.get('http://localhost:9000/task');
         setTasks(response.data);
         } catch (error) {
         console.error('Error fetching tasks:', error);
@@ -19,7 +19,7 @@ const TaskComponent = () => {
 
    const createTask = async () => {
         try {
-        await axios.post('http://localhost:3000/task', {
+        await axios.post('http://localhost:9000/task', {
             taskName: inputValue,
             taskDesc: descriptionValue
         });
@@ -45,7 +45,7 @@ const TaskComponent = () => {
 
   const handleDeleteTask = async (id) => {
     try {
-        await axios.delete(`http://localhost:3000/task/${id}`);
+        await axios.delete(`http://localhost:9000/task/${id}`);
         
         alert('Task Deleted Successfully');
         fetchTasks();
